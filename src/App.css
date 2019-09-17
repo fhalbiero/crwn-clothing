@@ -1,8 +1,13 @@
 body {
     font-family: 'Open Sans Condensed';
+    margin: 0 50px;
 }
 
 a {
     text-decoration: none;
     color: rgb(20, 20, 20);
+}
+
+* {
+    box-sizing: border-box;
 }
