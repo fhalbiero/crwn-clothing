@@ -2,7 +2,6 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 
-
 const config = {
     apiKey: "AIzaSyD_e2hxPiTPOzq55lXTOfGI4HftiIvL8MM",
     authDomain: "crwd-db-f2277.firebaseapp.com",
@@ -49,3 +48,34 @@ const config = {
   export const signInWithGoogle = () => auth.signInWithPopup(provider);
 
   export default firebase;
+
+  export const addCollectionAndDocuments = async (collectionKey, objectToAdd) => {
+      const collectionRef = firestore.collection(collectionKey);
+
+      const batch = firestore.batch();
+      objectToAdd.forEach(obj => {
+        const newDocRef = collectionRef.doc(obj.title);
+        batch.set(newDocRef, obj);
+      });
+
+      return await batch.commit();
+  }
+
+  export const convertCollectionsSnapshotToMap = (collectionsSnapshot) => {
+
+    const transfomedCollection = collectionsSnapshot.docs.map(docSnapshot => {
+        const { title, items } = docSnapshot.data();
+
+        return {
+          routeName: encodeURI(title.toLowerCase()),
+          id: docSnapshot.id,
+          title, 
+          items
+        }
+    })
+
+    return transfomedCollection.reduce((accumulator, collection) => {
+        accumulator[collection.title.toLowerCase()] = collection;
+        return accumulator;
+    }, {});
+  }
