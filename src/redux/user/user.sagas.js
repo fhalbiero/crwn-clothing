@@ -91,7 +91,6 @@ function* signInAfterSignUp({payload: {user, additionalData}}) {
 
 function* signUp({payload: {email, password, displayName}}) {
     try{
-        console.log('reducer start'); 
         const { user } = yield auth.createUserWithEmailAndPassword(email, password);
 
         yield put(signUpSuccess({user, additionalData: { displayName }}));
@@ -101,8 +100,9 @@ function* signUp({payload: {email, password, displayName}}) {
 }
 
 function* onSignUpSuccess() {
-    yield takeLatest(UserActionTypes.signUpSuccess, signInAfterSignUp);
+    yield takeLatest(UserActionTypes.SIGN_UP_SUCCESS, signInAfterSignUp);
 }
+
 
 
 export function* userSagas() {
@@ -111,7 +111,7 @@ export function* userSagas() {
         call(onEmailSignInStart), 
         call(onCheckUserSession),
         call(onSignOutStart),
-        call(onSignUpStart),
-        call(onSignUpSuccess)
+        call(onSignUpSuccess),
+        call(onSignUpStart)
     ]);
 }
