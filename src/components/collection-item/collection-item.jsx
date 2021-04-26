@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { CollectionItemContainer, BackgroundItemImage, CollectionFooterContainer, AddButton } from './collection-item-styles';
+import { CollectionItemContainer, BackgroundItemImage, CollectionFooterContainer, AddButton } from './styles';
 
 import { addItem } from '../../redux/cart/cart.action';
 

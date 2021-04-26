@@ -1,4 +1,6 @@
-.sign-in {
+import styled from 'styled-components';
+
+export const Container = styled.div`
   width: 380px;
   flex-direction: column;
 
@@ -10,4 +12,4 @@
     display: flex;
     justify-content: space-between;
   }
-}
+`;

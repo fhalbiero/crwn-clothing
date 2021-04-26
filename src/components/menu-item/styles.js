@@ -1,4 +1,6 @@
-.menu-item {
+import styled from 'styled-components';
+
+export const Container = styled.div`
     min-width: 30%;
     height: 240px;
     flex: 1 1 auto;
@@ -66,4 +68,4 @@
         font-size: 16px;
       }
     }
-  }
+`;

@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 
 import { clearItemFromCart, removeItem, addItem } from '../../redux/cart/cart.action'
 
-import './checkout-item.scss';
+import { Container } from './styles';
 
 const CheckoutItem = ({ cartItem, clearItem, removeItem, addItem }) => {
     const {name, imageUrl, price, quantity} = cartItem;
     
     return (
-        <div className="checkout-item">
+        <Container>
             <div className="image-container">
                 <img src={imageUrl} alt="item"></img>
             </div>
@@ -23,7 +23,7 @@ const CheckoutItem = ({ cartItem, clearItem, removeItem, addItem }) => {
             <div className="remove-button" onClick={() => clearItem(cartItem)}>
                 &#10005;
             </div>
-        </div>
+        </Container>
     );
 }
 

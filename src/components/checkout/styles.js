@@ -1,4 +1,6 @@
-.checkout-page {
+import styled from 'styled-components';
+
+export const Container = styled.div`
     width: 55%;
     min-height: 90vh;
     display: flex;
@@ -41,5 +43,4 @@
       font-size: 24px;
       color: rgb(241, 28, 0);
     }
-  }
-  
+`;

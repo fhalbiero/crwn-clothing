@@ -1,13 +1,17 @@
-$sub-color: grey;
-$main-color: black;
 
-@mixin shrinkLabel {
-  top: -14px;
-  font-size: 12px;
-  color: $main-color;
-}
+import styled from 'styled-components';
 
-.group {
+export const Container = styled.div`
+
+  $sub-color: grey;
+  $main-color: black;
+
+  @mixin shrinkLabel {
+    top: -14px;
+    font-size: 12px;
+    color: $main-color;
+  } 
+  
   position: relative;
   margin: 45px 0;
 
@@ -51,4 +55,4 @@ $main-color: black;
       @include shrinkLabel();
     }
   }
-}
+`;
