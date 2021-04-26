@@ -1,6 +1,6 @@
 <h1 align="center">Crwn Clothing<h1>
 
-<h1> <img src="img/img.png" alt=""> 
+<h1> <img src="public/img/img.png" alt=""> 
 
 # Indice
 - [About](#-about)
